@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alternate Case Converter</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link href="./altCase.styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+    <h1 class="text-2xl font-semibold mb-4">Alternate Case Converter</h1>
+    <input id="inputValue" class="w-full border-gray-300 rounded-md p-2 mb-4" type="text" placeholder="Enter text...">
+    <button onclick="altCaseConverter()" class="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-4 py-2 mb-4">Convert</button>
+    <p id="outputValue" class="border-gray-300 rounded-md p-2"></p>
+  </div>
+
+  <script>
+    function altCaseConverter() {
+      const inputValue = document.getElementById('inputValue').value;
+      const outputValue = document.getElementById('outputValue');
+
+      let convertedText = '';
+      for (let i = 0; i < inputValue.length; i++) {
+        if (i % 2 === 0) {
+          convertedText += inputValue[i].toUpperCase();
+        } else {
+          convertedText += inputValue[i].toLowerCase();
+        }
+      }
+
+      outputValue.textContent = convertedText;
+    }
+  </script>
+</body>
+</html>
